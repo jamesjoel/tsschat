@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>New Page</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="/js/angular.min.js"></script> -->
+	<!-- <script type="text/javascript" src="/js/app.js"></script> -->
+</head>
+<body ng-controller="myCtrl" ng-init="getData()">
+
+
+<hr />
+<hr />
+
+
+<div class="container">
+	<div class="well">
+		
+	</div>
+	<%
+	for(var i=1; i<=pages; i++){ %>
+		<ul class="pagination">
+			<li><a href="/student/pages/<%= i; %>"><%= i %></a>
+		</ul>
+	<%
+	}
+	%>
+	<table class="table table-bordered">
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Fee</th>
+			
+		</tr>
+		<% data.forEach(function(row, n){ %>
+			<tr>
+				<td><%= n+1 %></td>
+				<td><%= row.name %></td>
+				<td><%= row.age %></td>
+				<td><%= row.fee %></td>
+				
+			</tr>
+		<% }) %>
+	</table>
+</div>
+
+
+
+
+</body>
+</html>
